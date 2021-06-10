@@ -23,13 +23,13 @@ class Application
         trip_expense = trip.expenses.find_by(id: expense_id)
         trip_expense.destroy()
       elsif req.env["REQUEST_METHOD"] == "PATCH"
-        # binding.pry
         input = JSON.parse(req.body.read)
         trip_id = req.path.split("/trips/").last.split('/expenses').first
         trip = Trip.find_by(id: trip_id)
         expense_id = req.path.split('/expenses/').last
         trip_expense = trip.expenses.find_by(id: expense_id)
         trip_expense.update(input)
+        return [200, { 'Content-Type' => 'application/json' }, [ trip_expense.to_json ]]
       end
     elsif req.path.match(/trips/)
       if req.env["REQUEST_METHOD"] == "POST"
