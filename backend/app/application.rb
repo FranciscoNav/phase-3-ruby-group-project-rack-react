@@ -6,10 +6,8 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
-
-    if req.path.match(/test/) 
-      return [200, { 'Content-Type' => 'application/json' }, [ {:message => "test response!"}.to_json ]]
-    elsif req.path.match(/expenses/)
+    
+    if req.path.match(/expenses/)
       if req.env["REQUEST_METHOD"] == "POST"
         input = JSON.parse(req.body.read)
         trip_id = req.path.split("/trips/").last.split('/expenses').first
@@ -46,7 +44,6 @@ class Application
       end
     else
       resp.write "Path Not Found"
-
     end
 
     resp.finish
