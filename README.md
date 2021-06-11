@@ -9,3 +9,4 @@ The goal of the website is to help people keep track of all the trips they are t
 To start, click on the “Trips List” tab and create a new trip. Once created, click on your trip to view all the related expenses and to add additional expenses. When you have finished adding all your expenses click the “calculate” button at the button of the screen to see the total cost.
 
 ## Demo video 
+https://www.youtube.com/watch?v=_O9Jbpyk4S8
